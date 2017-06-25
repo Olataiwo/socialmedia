@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
+	public function getDashBoard()
+	{
+		return view('dashboard');
+	}
 
 	public function postSignUp(Request $request)
 	{
@@ -19,7 +23,7 @@ class userController extends Controller
 
 		$user->save();
 
-		return redirect()->back();
+		return redirect()->route('dashboard');
 	}
 
 

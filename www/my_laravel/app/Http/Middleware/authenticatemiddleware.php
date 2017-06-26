@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class authenticatemiddleware
 {
@@ -14,13 +14,22 @@ class authenticatemiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard=null)
     {
-        if(Auth::check()){
-           return $next($request); 
+         if (Auth::guard($guard)->guest())
+        {
+            if ($request->ajax())
+            {
+                return response('Unauthorized.', 401);
+            }
+            else
+            {
+                return redirect()->route('home');
+            }
         }
-        
 
-        return redirect()->route('/');
+        return $next($request);
+    
     }
 }
+

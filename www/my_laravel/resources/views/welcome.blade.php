@@ -5,6 +5,19 @@
 @endsection
 
 @section('content')
+    @if(count($errors) > 0)
+    <div class='row'>
+      <div class='col-md-6'>
+          <ul>
+            @foreach($errors->all() as $error)
+
+            @endforeach
+            <li>{{$error}}</li>
+          </ul>
+      </div>
+        
+    </div>
+    @endif
     <div class="row">
 
         <div class="col-md-6">
@@ -12,9 +25,9 @@
             <form action ="{{route('signup')}}" method="post">
                     <div class="form-group">
                         <label for="email">Your email:</label>  
-                        <input class="form-control" type="text" name="email" id="email"> 
+                        <input class="form-control" type="text" name="email" id="email" value="{{Request::old('email')}}"> 
                          <label for="first_name">Your First name:</label>  
-                        <input class="form-control" type="text" name="first_name" id="first_name"> 
+                        <input class="form-control" type="text" name="first_name" id="first_name" value="{{Request::old('first_name')}}"> 
                         
                         <label for="password">Your password:</label>  
                         <input class="form-control" type="password" name="password" id="password"> 
@@ -31,7 +44,7 @@
             <form action ="{{route('signin')}}" method="post">
                     <div class="form-group">
                         <label for="email">Your email:</label>  
-                        <input class="form-control" type="text" name="email" id="email"> 
+                        <input class="form-control" type="text" name="email" id="email" value="{{Request::old('email')}}"> 
                         
                         <label for="password">Your password:</label>  
                         <input class="form-control" type="password" name="password" id="password"> 

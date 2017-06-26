@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 Route::group(['middleware'=>['web']], function(){
@@ -34,8 +34,14 @@ Route::group(['middleware'=>['web']], function(){
 
 	Route::get('/dashboard', [
 		'uses'=>'userController@getDashBoard',
-		'as'=>'dashboard'
+		'as'=>'dashboard',
+		'middleware'=>'authenticated'
+		
 	]);
 
 
 });
+
+
+
+

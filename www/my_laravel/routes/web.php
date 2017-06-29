@@ -43,6 +43,12 @@ Route::group(['middleware'=>['web']], function(){
 		
 	]);
 
+	Route::post('/createpost', [
+		'uses'=>'PostController@postCreatePost',
+		'as'=>'post.create'
+
+	]);
+
 
 });
 

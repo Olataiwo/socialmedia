@@ -5,19 +5,7 @@
 @endsection
 
 @section('content')
-    @if(count($errors) > 0)
-    <div class='row'>
-      <div class='col-md-6'>
-          <ul>
-            @foreach($errors->all() as $error)
-
-            @endforeach
-            <li>{{$error}}</li>
-          </ul>
-      </div>
-        
-    </div>
-    @endif
+    @includes('inludes.messageblock')
     <div class="row">
 
         <div class="col-md-6">

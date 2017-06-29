@@ -37,7 +37,7 @@ Route::group(['middleware'=>['web']], function(){
 	]);
 
 	Route::get('/dashboard', [
-		'uses'=>'userController@getDashBoard',
+		'uses'=>'PostController@getDashBoard',
 		'as'=>'dashboard',
 		'middleware'=>'authenticated'
 		

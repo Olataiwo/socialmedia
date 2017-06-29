@@ -36,6 +36,11 @@ Route::group(['middleware'=>['web']], function(){
 		'as'=>'signin'
 	]);
 
+	Route::get('/logout',[
+		'uses'=>'userController@getLogout',
+		'as'=>'Logout'
+		]);
+
 	Route::get('/dashboard', [
 		'uses'=>'PostController@getDashBoard',
 		'as'=>'dashboard',

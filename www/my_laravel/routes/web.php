@@ -61,6 +61,10 @@ Route::group(['middleware'=>['web']], function(){
 		'middleware'=>'authenticated'
 		]);
 
+	Route::post('/edit', function(\Illuminate\Http\Request $request){
+		return response()->json(['message'=>$request['body']]);
+	})->name('edit');
+
 
 });
 

@@ -6,13 +6,13 @@
     margin-bottom:20px;
   }
 
-.posts .post {
+.row-post .post {
   padding-left:10px;
   border-left: 3px solid #a21b24;
   margin-bottom: 30px;
 }
 
-.posts .post .info {
+.row-post .post .info {
   color:#aaa;
   font-style:italic;
 }
